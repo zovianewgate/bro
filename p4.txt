@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Vowel position and Number reverse</title>
+</head>
+<body>
+<h1 style="text-align: center;color: blue;">Vowel position and Number reverse</h1>
+<hr>
+<input type="text" id="str">
+<button onclick="process()">submit</button>
+<h3>Result:</h3>
+<h4 id="result"></h4>
+<script type="text/javascript"> 
+	function process() {
+var str = document.getElementById("str").value;
+ var result = document.getElementById("result"); 
+ if (!(isNaN(str))) {
+var num, rev = 0, remainder;
+num = parseInt(str);
+ while (num != 0) {
+remainder = num % 10;
+ num = parseInt(num / 10); 
+ rev = rev * 10 + remainder;
+}
+result.innerHTML = "Reverse of " + str + " is " + rev
+} 
+else
+ {
+str = str.toUpperCase();
+for (var i = 0; i < str.length; i++) 
+ {
+  var chr = str.charAt(i);
+if (chr == 'A' || chr == 'E' || chr == 'I' || chr == 'O' || chr == 'U') break;
+}
+if (i < str.length)
+result.innerHTML = "The position of the left most vowel is " + (i + 1) + " and the character is <b>" + chr;
+else
+ 
+result.innerHTML = "No vowel found in the entered string";
+}
+}
+</script>
+</body>
+</html>
